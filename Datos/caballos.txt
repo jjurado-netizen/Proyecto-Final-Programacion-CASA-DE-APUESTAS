@@ -1,0 +1,4 @@
+Trueno;2;3;6
+Relampago;3;2;5
+Centella;4;2;5
+Tormenta;5;1;5

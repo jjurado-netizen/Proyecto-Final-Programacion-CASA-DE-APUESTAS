@@ -1,0 +1,6 @@
+Cereza;3
+Limon;4
+Campana;5
+Estrella;8
+Diamante;10
+Siete;15
