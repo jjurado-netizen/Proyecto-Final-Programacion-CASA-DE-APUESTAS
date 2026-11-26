@@ -3,15 +3,23 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
 //zona de definicion de funciones (juegos)
+int jugarRuleta(int apuesta){
+    cout<< "Bienvenido a la Ruleta. Apuesta: "<< apuesta <<endl;
+    return 0; //Por ahora siempre pierde
+}
 
 
 int main(){
 
-    //acá vamos a definir variables
+    
+    srand(time(0));
+    //acï¿½ vamos a definir variables
     int opMen1; //validador ingreso del menu
     bool in_jug = 1; //ciclo while para validar cantidad de jugadores
     bool nom_jug = 1; //ciclo while para confirmar los nombres
@@ -255,14 +263,28 @@ int main(){
                                     break;
 
 
-                                case 2:
+                                case 2:{ 
 
                                     cout << "Has seleccionado Ruleta." << endl;
-                                    cout << "El juego estara disponible proximamente." << endl;
+
+                                    int apuesta;
+                                    cout<<"Monto de la apuesta; (Saldo: )"<< saldos[i]<< "):";
+                                    cin>>apuesta;
+
+                                    while(apuesta <= 0 || apuesta > saldos[i]){
+                                        cout<< "Apuesta invalida. Ingrese un valor entre 1 y " <<saldos[i] << ": ";
+                                        cin>>apuesta;
+                                    }
+
+                                    int pago = jugarRuleta(apuesta);
+
+                                    saldos[i] = saldos[i] - apuesta + pago;
+                                    cout<< "Nuevo saldo: " <<saldos[i]<<endl;
+                                    
                                     turnoTerminado = true;
                                     break;
 
-
+                                }
                                 case 3:
 
                                     cout << "Has seleccionado Carrera de Caballos." << endl;
